@@ -2,125 +2,105 @@
             <li class="sidebar-title">Menu</li>
             
             <li
-                class="sidebar-item  ">
-                <a href="index.html" class='sidebar-link'>
+                class="sidebar-item active">
+                <a href="/dashboard" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            
-            <li
+
+
+                        <!-- planning -->
+
+                        <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Components</span>
+                <i class="fa-solid fa-ship"></i>
+                    <span>Planning</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="component-alert.html">Alert</a>
+                        <a href="form-element-input.html">Input</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-badge.html">Badge</a>
+                        <a href="form-element-input-group.html">Input Group</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-breadcrumb.html">Breadcrumb</a>
+                        <a href="form-element-select.html">Select</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-button.html">Button</a>
+                        <a href="form-element-radio.html">Radio</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-card.html">Card</a>
+                        <a href="form-element-checkbox.html">Checkbox</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-carousel.html">Carousel</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-collapse.html">Collapse</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-dropdown.html">Dropdown</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-list-group.html">List Group</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-modal.html">Modal</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-navs.html">Navs</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-pagination.html">Pagination</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-progress.html">Progress</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-spinner.html">Spinner</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="component-tooltip.html">Tooltip</a>
+                        <a href="form-element-textarea.html">Textarea</a>
                     </li>
                 </ul>
             </li>
+
+
             
+
+            
+
+            <!-- disch/load -->
+
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
-                    <span>Extra Components</span>
+                    <span>Disch/Load</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="extra-component-avatar.html">Avatar</a>
+                        <a href="extra-component-avatar.html">Loading Confirm With Plan</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-sweetalert.html">Sweet Alert</a>
+                        <a href="extra-component-sweetalert.html">Loading Confirm Without Plan</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-toastify.html">Toastify</a>
+                        <a href="extra-component-toastify.html">Discharge Confirm</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-rating.html">Rating</a>
+                        <a href="extra-component-rating.html">Entry Hatch Move</a>
+                    </li>
+                    <br>
+                    <li class="submenu-item ">
+                        <a href="extra-component-divider.html">Load/Disc Activity Rekap</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-divider.html">Divider</a>
+                        <a href="extra-component-divider.html">Load/Disc Activity Rekap - SPLIT</a>
                     </li>
+
+                    <br>
+
+                    <li class="submenu-item ">
+                        <a href="extra-component-divider.html">Laporan Rekap RBM Split - Total</a>
+                    </li>
+
+                    <br>
+
+                    <li class="submenu-item ">
+                         <a href="extra-component-divider.html">Correction Stowage Pos. after load</a>
+                    </li>
+                    <li class="submenu-item ">
+                         <a href="extra-component-divider.html">Unloading ( Change status 56 to 50)</a>
+                    </li>
+                    <li class="submenu-item ">
+                         <a href="extra-component-divider.html">Statement or Facts</a>
+                    </li>     
                 </ul>
             </li>
             
-            <li
-                class="sidebar-item active has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Layouts</span>
-                </a>
-                <ul class="submenu active">
-                    <li class="submenu-item ">
-                        <a href="layout-default.html">Default Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-1-column.html">1 Column</a>
-                    </li>
-                    <li class="submenu-item active">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
-                    </li>
-                </ul>
-            </li>
-            
-            <li class="sidebar-title">Forms &amp; Tables</li>
-            
-            <li
+                        <!-- yard -->
+
+                        <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
-                    <i class="bi bi-hexagon-fill"></i>
-                    <span>Form Elements</span>
+                <i class="fa-solid fa-landmark-flag"></i>
+                    <span>Yard</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
@@ -144,15 +124,227 @@
                 </ul>
             </li>
             
+
+                                    <!-- gate -->
+
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                <i class="fa-solid fa-torii-gate"></i>
+                    <span>Gate</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="form-element-input.html">Input</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-input-group.html">Input Group</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-select.html">Select</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-radio.html">Radio</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Checkbox</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Textarea</a>
+                    </li>
+                </ul>
+            </li>
+            
+
+
+
+                                    <!-- EDI -->
+
+                <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                <i class="fa-solid fa-landmark-flag"></i>
+                    <span>EDI</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="form-element-input.html">Input</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-input-group.html">Input Group</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-select.html">Select</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-radio.html">Radio</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Checkbox</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Textarea</a>
+                    </li>
+                </ul>
+            </li>
+            
+
+             <!-- Report -->
+
+             <li
+                class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
+                <i class="fa-sharp fa-solid fa-file-chart-column"></i>
+                    <span>Report and Information</span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item ">
+                        <a href="layout-default.html">Default Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">1 Column</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-rtl.html">RTL Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Horizontal Menu</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <!-- CTR -->
+
             <li
+                class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
+                <i class="fa-solid fa-toolbox"></i>
+                    <span>CTR Maintenance</span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item ">
+                        <a href="layout-default.html">Default Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">1 Column</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-rtl.html">RTL Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Horizontal Menu</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- System -->
+
+            <li
+                class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
+                <i class="fa-solid fa-wrench"></i>
+                    <span>System</span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item ">
+                        <a href="layout-default.html">Default Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">1 Column</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-rtl.html">RTL Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Horizontal Menu</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+
+
+            <!-- invoice -->
+
+            <li
+                class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-currency-exchange"></i>
+                    <span>Invoice</span>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item ">
+                        <a href="layout-default.html">Default Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">1 Column</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-rtl.html">RTL Layout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Horizontal Menu</a>
+                    </li>
+                </ul>
+            </li>
+
+                        <!-- Master -->
+                        <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Master</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="/master/port">Port Maintenance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-badge.html">Berth Maintenance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-breadcrumb.html">Vessel Maintenance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-button.html">Vessel Service Maintenance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-card.html">Agent- Liner Maintenance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-carousel.html">ISO Code Maintenance</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            
+            <!-- <li class="sidebar-title">Planning &amp; Yard</li> -->
+
+
+
+            <!-- <li
                 class="sidebar-item  ">
                 <a href="form-layout.html" class='sidebar-link'>
                     <i class="bi bi-file-earmark-medical-fill"></i>
-                    <span>Form Layout</span>
+                    <span>Yard</span>
                 </a>
-            </li>
+            </li> -->
             
-            <li
+            <!-- <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-journal-check"></i>
@@ -209,9 +401,9 @@
                         <a href="table-datatable-jquery.html">Datatable (jQuery)</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             
-            <li class="sidebar-title">Extra UI</li>
+            <!-- <li class="sidebar-title">Extra UI</li>
             
             <li
                 class="sidebar-item  has-sub">
@@ -389,4 +581,4 @@
                 </a>
             </li>
             
-        </ul>
+        </ul> -->
