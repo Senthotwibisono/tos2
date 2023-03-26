@@ -243,22 +243,20 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Input</a>
+                        <a href="form-element-input.html">Gate In Delivery</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-input-group.html">Input Group</a>
+                        <a href="form-element-input-group.html">Gate Out Delivery</a>
+                    </li>
+
+                    <hr>
+
+                    
+                    <li class="submenu-item ">
+                        <a href="form-element-select.html">Gate In Receiving</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-select.html">Select</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-radio.html">Radio</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Checkbox</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-textarea.html">Textarea</a>
+                        <a href="form-element-radio.html">Gate Out Receiving</a>
                     </li>
                 </ul>
             </li>
@@ -354,33 +352,16 @@
             <!-- System -->
 
             <li
-                class="sidebar-item has-sub">
-                <a href="#" class='sidebar-link'>
-                <i class="fa-solid fa-wrench"></i>
+            class="sidebar-item">
+                <a href="/system" class='sidebar-link'>
+                < <i class="fa-solid fa-wrench"></i>
                     <span>System</span>
                 </a>
-                <ul class="submenu">
-                    <li class="submenu-item ">
-                        <a href="layout-default.html">Default Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-1-column.html">1 Column</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
-                    </li>
-                </ul>
             </li>
 
 
 
-
+           
 
             <!-- invoice -->
 
