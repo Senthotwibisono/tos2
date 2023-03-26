@@ -24,3 +24,7 @@ Route::get('/dashboard', function () {
 Route::get('/master/port', function () {
     return view('master.port');
 });
+
+Route::get('/invoice', function () {
+    return view('invoice.dashboard');
+});

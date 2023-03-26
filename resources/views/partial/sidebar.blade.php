@@ -20,22 +20,61 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Input</a>
+                        <a href="form-element-input.html">Create Vessel Schedule</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-input-group.html">Input Group</a>
+                        <a href="form-element-input-group.html">Vessel Schedule Maintenance</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-select.html">Select</a>
+                        <a href="form-element-select.html">Vessel Service / Route</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-radio.html">Radio</a>
+                        <a href="form-element-radio.html">Yard Allocation Filter</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Checkbox</a>
+                        <a href="form-element-checkbox.html">Load Planning</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-textarea.html">Textarea</a>
+                        <a href="form-element-checkbox.html">Load Planning - Bigger Vessel</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Print Layout Bayplan All Bay</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Layout Yard Export</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Profile Kapal</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Yard Block</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Realisasi Export</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Print Discharging List</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Print Import Card</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Realisasi Bongkar</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Insert / Update B/L</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Vessel Schedule</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Vessel Schedule (Est vs Act)</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Vessel Master</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">VIP Container Export</a>
                     </li>
                 </ul>
             </li>
@@ -104,22 +143,92 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Input</a>
+                        <a href="form-element-input.html">Yard Operation Control</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-input-group.html">Input Group</a>
+                        <a href="form-element-input-group.html">Behandle Control</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-select.html">Select</a>
+                        <a href="form-element-select.html">List Behandle Control Not Relocation</a>
+                    </li>
+                    <hr>
+                    <li class="submenu-item ">
+                        <a href="form-element-radio.html">Karantina Control</a>
+                    </li>
+                    <hr>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Placement Container</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-radio.html">Radio</a>
+                        <a href="form-element-textarea.html">Yard Display</a>
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Yard View</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Checkbox</a>
+                        <a href="form-element-textarea.html">Reefer Monitoring</a>
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Reefer Export Control</a>
+                    </li>
+                    <hr>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Yard Planning Gate In Reciving</a>
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Monitoring Gate In Reciving</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-textarea.html">Textarea</a>
+                        <a href="form-element-textarea.html">Re-print Job Order With Barcode</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Re-print Per Job Order With Barcode</a>
+                    </li>
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Behandle Confirm</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Behandle Confirm Status 09</a>
+                    </li> 
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Stuffing Confirm</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Stripping Confirm</a>
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Re-print Job Behandle</a>
+                    </li>
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Placement</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Laporan UnPlacement</a>
+                    </li> 
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Job Slip Behandle</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Laporan Job Slip Stripping</a>
+                    </li> 
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Job Slip Stuffing</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-textarea.html">Laporan Job Slip Scanning</a>
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Job Slip Gerakan Extra</a>
+                    </li>
+
+                    <hr>
+
+                    </li> <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Laporan Behandle Confirm</a>
                     </li>
                 </ul>
             </li>
@@ -161,7 +270,7 @@
 
                 <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
-                <i class="fa-solid fa-landmark-flag"></i>
+                <i class="fa-solid fa-file"></i>
                     <span>EDI</span>
                 </a>
                 <ul class="submenu ">
@@ -276,28 +385,11 @@
             <!-- invoice -->
 
             <li
-                class="sidebar-item has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-currency-exchange"></i>
+                class="sidebar-item">
+                <a href="/invoice" class='sidebar-link'>
+                <i class="bi bi-currency-exchange"></i>
                     <span>Invoice</span>
                 </a>
-                <ul class="submenu">
-                    <li class="submenu-item ">
-                        <a href="layout-default.html">Default Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-1-column.html">1 Column</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
-                    </li>
-                </ul>
             </li>
 
                         <!-- Master -->
