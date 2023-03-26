@@ -273,22 +273,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Input</a>
+                        <a href="form-element-input.html">Baplie Arriva</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-input-group.html">Input Group</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-select.html">Select</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-radio.html">Radio</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Checkbox</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-textarea.html">Textarea</a>
+                        <a href="form-element-input-group.html">Baplie  Deparature</a>
                     </li>
                 </ul>
             </li>
@@ -304,19 +292,67 @@
                 </a>
                 <ul class="submenu">
                     <li class="submenu-item ">
-                        <a href="layout-default.html">Default Layout</a>
+                        <a href="layout-default.html">History Container</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="layout-vertical-1-column.html">1 Column</a>
+                        <a href="layout-vertical-1-column.html">History Container Equal</a>
                     </li>
                     <li class="submenu-item">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                        <a href="layout-vertical-navbar.html">Yard Display</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
+                        <a href="layout-rtl.html">Vessel Activity Monitoring</a>
+                    </li>
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Laporan Dwelling</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
+                        <a href="layout-default.html">Container per Vessel Imp/Exp</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">Container Activity di Lapangan</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Import List</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-rtl.html">Container All Status Per Vessel</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-horizontal.html">Container per Status per Vessel</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-default.html">Entry Bayplan Perfomance</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">Yard Occupantion Ratio</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Perfomance Gate</a>
+                    </li>
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">Equipment Production</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">Operator Production</a>
+                    </li>
+
+                    <hr>
+
+                    <li class="submenu-item ">
+                        <a href="layout-vertical-1-column.html">All Container per B/L</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">All Container per Kapal per B/L</a>
+                    </li>
+                    <li class="submenu-item">
+                        <a href="layout-vertical-navbar.html">SP2 Active</a>
                     </li>
                 </ul>
             </li>
