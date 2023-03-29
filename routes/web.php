@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });  
 
 Route::get('/master/port', function () {
     return view('master.port');
@@ -32,3 +34,6 @@ Route::get('/invoice', function () {
 Route::get('/system', function () {
     return view('system.main');
 });
+Auth::routes();
+
+Route::middleware('role:admin')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
