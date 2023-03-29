@@ -36,4 +36,4 @@ Route::get('/system', function () {
 });
 Auth::routes();
 
-Route::middleware('role:admin')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
