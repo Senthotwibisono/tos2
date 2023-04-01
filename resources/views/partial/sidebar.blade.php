@@ -388,11 +388,19 @@
             <!-- System -->
 
             <li
-            class="sidebar-item">
-                <a href="/system" class='sidebar-link'>
+            class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
                 < <i class="fa-solid fa-wrench"></i>
                     <span>System</span>
                 </a>
+                <ul class="submenu">
+                    <li class="submenu-item ">
+                        <a href="/system/user">User</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="/system/role">Role</a>
+                    </li>
+                </ul>
             </li>
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,14 @@ Route::get('/invoice', function () {
     return view('invoice.dashboard');
 });
 
-Route::get('/system', function () {
-    return view('system.main');
-});
+
+
+
 Auth::routes();
+
+Route::get('/system/user', [SystemController::class, 'user'])->name('system.user.main');
+Route::get('/system/role', [SystemController::class, 'role'])->name('system.role.main');
+Route::get('/system/role/addrole', [SystemController::class, 'createrole'])->name('system.role.cretae');
+Route::post('/system/role/rolestore', [SystemController::class, 'rolestore']);
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
