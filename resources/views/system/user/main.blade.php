@@ -22,7 +22,7 @@
         <div class="card">
             <div class="card-header">
                
-                    <a href="#" class="btn icon icon-left btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Add User</a>
+                    <a href="/system/user/create_user" class="btn icon icon-left btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Add User</a>
              
             </div>
             <div class="card-body">
@@ -42,9 +42,12 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->roles->implode('name', ', ')}}</td>
                             <td>
-                            <a href="#" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
-                            <a href="#" class="btn icon btn-danger"><i class="bi bi-x"></i></a>
-                            </td>
+                            <a href="/system/edit_user={{$user->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                            <form action="/system/delete_user={{$user->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
+                            </form>
                         </tr>
                         @endforeach
                     </tbody>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\User;
 use App\Models\Role;
@@ -63,4 +64,60 @@ class SystemController extends Controller
         Role::destroy($id);
         return back();
     }
+
+    public function create_user()
+    {
+        $roles = Role::all();
+        return view('system.user.create', compact('roles'));
+    }
+
+    public function user_store(Request $request)
+    {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role'  => $request->role,
+        ]);
+
+        $role = Role::findByName($request->role);
+        $user->assignRole($role);
+
+        return redirect('/system/user');
+    }
+
+    public function edit_user($id){
+        $users = User::where('id', $id)->first();
+        $roles = Role::all();
+        return view('system.user.edit', compact('users','roles'));
+    }
+
+    public function update_user(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users,email,'.$user->id.'|max:255',
+            'role' => 'required|exists:roles,name'
+        ]);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $role = Role::where('name', $request->input('role'))->first();
+        $user->syncRoles([$role->id]);
+
+        return redirect('/system/user');
+    }
+
+    public function delete_user($id)
+    {
+        User::destroy($id);
+        return back();
+    }
+
+    
 }
