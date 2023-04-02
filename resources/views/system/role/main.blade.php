@@ -40,8 +40,12 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$role->name}}</td>
                             <td>
-                            <a href="#" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
-                            <a href="#" class="btn icon btn-danger"><i class="bi bi-x"></i></a>
+                            <a href="/system/edit_role={{$role->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                            <form action="/system/delete_role={{$role->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
+                            </form>
                             </td>
                         </tr>
                         @endforeach

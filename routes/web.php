@@ -41,5 +41,8 @@ Route::get('/system/user', [SystemController::class, 'user'])->name('system.user
 Route::get('/system/role', [SystemController::class, 'role'])->name('system.role.main');
 Route::get('/system/role/addrole', [SystemController::class, 'createrole'])->name('system.role.cretae');
 Route::post('/system/role/rolestore', [SystemController::class, 'rolestore']);
+Route::get('/system/edit_role={id}', [SystemController::class, 'edit_role'])->name('system.role.edit');
+Route::patch('/system/role_update={id}', [SystemController::class, 'update_role']);
+Route::delete('/system/delete_role={id}', [SystemController::class, 'delete_role']);
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

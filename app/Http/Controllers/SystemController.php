@@ -38,9 +38,29 @@ class SystemController extends Controller
     'name' => $request->name,
     'guard_name' => $request->web,
     ]);
-  
-
     // redirect ke halaman sukses
     return redirect('/system/role')->with('success', 'Data berhasil disimpan!');
-}
+    }
+
+    public function edit_role($id){
+        $roles = Role::where('id', $id)->first();
+        // dd($role);
+        return view('system.role.edit', compact('roles'));
+    }
+
+    public function update_role(Request $request, $id)
+    {
+        Role::where('id', $id)->update([
+            'name'=> $request->name,
+            'guard_name'=> $request->guard_name,
+            
+        ]);
+        return redirect('/system/role');
+    }
+
+    public function delete_role(string $id)
+    {
+        Role::destroy($id);
+        return back();
+    }
 }
