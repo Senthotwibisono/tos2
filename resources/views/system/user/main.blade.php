@@ -26,7 +26,7 @@
              
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns" id="table1">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -42,16 +42,18 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->roles->implode('name', ', ')}}</td>
                             <td>
-                            <a href="/system/edit_user={{$user->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
                             <form action="/system/delete_user={{$user->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
+                            <a href="/system/edit_user={{$user->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
                             </form>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                
             </div>
         </div>
 

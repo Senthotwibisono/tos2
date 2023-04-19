@@ -8,3 +8,6 @@
     <link rel="shortcut icon" href="{{asset('dist/assets/images/logo/favicon.png')}}" type="image/png">
     <link rel="stylesheet" href="{{asset('dist/assets/css/shared/iconly.css')}}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{asset('dist/assets/css/pages/datatables.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/assets/extensions/simple-datatables/style.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/assets/css/pages/simple-datatables.css')}}">

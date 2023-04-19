@@ -26,7 +26,7 @@
              
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="table1">
+                <table class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -40,11 +40,12 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$role->name}}</td>
                             <td>
-                            <a href="/system/edit_role={{$role->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                            
                             <form action="/system/delete_role={{$role->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
+                            <a href="/system/edit_role={{$role->id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
                             </form>
                             </td>
                         </tr>

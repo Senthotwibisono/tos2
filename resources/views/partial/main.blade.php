@@ -56,6 +56,8 @@
     <script src="{{asset('dist/assets/js/app.js')}}"></script>
     <script src="{{asset('fontawesome/js/all.js')}}"></script>
     <script src="{{asset('fontawesome/js/all.min.js')}}"></script>
+    <script src="{{asset('dist/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
+    <script src="{{asset('dist/assets/js/pages/simple-datatables.js')}}"></script>
 </body>
 
 

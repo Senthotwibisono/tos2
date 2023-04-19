@@ -20,10 +20,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Create Vessel Schedule</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="form-element-input-group.html">Vessel Schedule Maintenance</a>
+                        <a href="/planning/vessel-schedule">Vessel Schedule</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="form-element-select.html">Vessel Service / Route</a>

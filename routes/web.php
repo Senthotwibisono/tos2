@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
-
+use App\Http\Controllers\VesselController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,5 +50,8 @@ Route::post('/system/user_store', [SystemController::class, 'user_store']);
 Route::get('/system/edit_user={id}', [SystemController::class, 'edit_user'])->name('system.user.edit');
 Route::patch('/system/user_update={id}', [SystemController::class, 'update_user']);
 Route::delete('/system/delete_user={id}', [SystemController::class, 'delete_user']);
+
+Route::get('/planning/vessel-schedule', [VesselController::class, 'index']);
+Route::get('/planning/create-schedule', [VesselController::class, 'create']);
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
