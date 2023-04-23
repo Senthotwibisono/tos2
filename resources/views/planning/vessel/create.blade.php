@@ -11,101 +11,133 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form">
+                        @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form class="form" method="post" action='/planning/vessel_schedule_store'>
+                                @CSRF
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">Vessel Code</label>
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
+                                            <select class="form-select" id="vescode" name="ves_code">
+                                            <option value="-">-</option>
+                                                @foreach($vessel_master as $master)
+                                            <option value="{{$master->ves_code}}">{{$master->ves_code}}</option>
+                                                @endforeach
+                                        </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="last-name-column">Vessel Id</label>
-                                            <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="lname-column">
-                                        </div>
-                                    </div>
+                                   
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Vessel Name</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Vessel Name</label>
+                                            <select class="form-select" id="vesname" name="ves_name" required readonly>
+                                            <option value="-">-</option>                                
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="country-floating">Voy In</label>
-                                            <input type="text" id="country-floating" class="form-control" name="country-floating" placeholder="Country">
+                                            <label for="-floating">Voy In</label>
+                                            <input type="text" id="-floating" class="form-control" name="voy_in" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="company-column">Voy Out</label>
-                                            <input type="text" id="company-column" class="form-control" name="company-column" placeholder="Company">
+                                            <label for="-column">Voy Out</label>
+                                            <input type="text" id="-column" class="form-control" name="voy_out" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Agent</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-column">Agent</label>
+                                            <select class="form-select" id="agent" name="agent" required readonly>
+                                            <option value="-">-</option>                                
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Liner</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">Liner</label>
+                                            <select class="form-select" id="liner" name="liner" required readonly>
+                                            <option value="-">-</option>                                
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Voy Owner</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">Voy Owner</label>
+                                            <input type="text" id="-id-column" class="form-control" name="voy_owner" placeholder="" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                        <input type="checkbox" name="checkbox_name" value="1"> Export 
-                                        <input type="checkbox" name="checkbox_name" value="1"> Import
+                                        <input type="checkbox" name="checkbox_name" value="Y"> Export 
+                                        <input type="checkbox" name="checkbox_name" value="Y"> Import
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Liner/Tramp</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                        <label for="-id-column">Liner/Tramp</label>
+                                            <select class="form-select" id="" name="linerortramp" required readonly required> 
+                                            <option value="L">Liner</option>
+                                            <option value="T">Tramp</option>                                   
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Feeder/Direct</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">Feeder/Direct</label>
+                                            <select class="form-select" id="" name="linerortramp" required readonly required>
+                                            <option value="A">Feeder</option>
+                                            <option value="B">Direct</option>                                   
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Vessel Service</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
-                                        </div>
+                                            <label for="-id-column">Vessel Service</label>
+                                            <select class="form-select" id="service" name="ves_service" required>
+                                            <option value="-">-</option>
+                                                @foreach($vessel_service as $service)
+                                            <option value="{{$service->service}}">{{$service->service}}</option>
+                                                @endforeach
+                                            </select>
+                                            </div>
                                         <div class="form-group">
-                                        <input type="checkbox" name="checkbox_name" value="1"> Ocean Going <br>
-                                        <input type="checkbox" name="checkbox_name" value="1"> Inter Island
+                                        <label for="-id-column">Ocean/Interisland</label>
+                                            <select class="form-select" id="service" name="ves_service" required>
+                                            <option value="O">Ocean Going</option>                                             
+                                            <option value="I">Inter Island</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Reg Flag</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">Reg Flag</label>
+                                            <select class="form-select" id="reg_flag" name="reg_flag" required readonly>
+                                            <option value="-">-</option>                                
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">No PPK</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">No PPK</label>
+                                            <input type="" id="-id-column" class="form-control" name="no_ppk" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Billing Complete</label>
-                                            <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
+                                            <label for="-id-column">Billing Complete</label>
+                                            <input type="" id="-id-column" class="form-control" name="billing_complate" placeholder="" required>
                                         </div>
                                     </div>
 
@@ -116,150 +148,208 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">Origin Port</label>
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
+                                            <select class="form-select" id="origin" name="origin_port" required>
+                                            <option value="-">-</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="last-name-column">Next Port</label>
-                                            <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="lname-column">
+                                            <select class="form-select" id="next" name="next_port" required>
+                                            <option value="-">-</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Dest Port</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Dest Port</label>
+                                            <select class="form-select" id="dest" name="dest_port" required>
+                                            <option value="-">-</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Last Port</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Last Port</label>
+                                            <select class="form-select" id="last" name="last_port" required>
+                                            <option value="-">-</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    <br>
+                                   
 
                                     <hr>
                                     <h6>Vessel & Berth Informatiom</h6>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">Vessel Length</label>
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
+                                            <select class="form-select" id="length" name="length" required readonly>
+                                            <option value="-">-</option>                                
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="last-name-column">Berth No</label>
-                                            <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="lname-column">
+                                            <select class="form-select" id="berth" name="berth_no" required>
+                                            <option value="-">-</option>
+                                                @foreach($berth as $b)
+                                            <option value="{{$b->berth_no}}">{{$b->berth_no}}</option>
+                                                @endforeach
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Berth Fr Metre</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Berth Fr Metre</label>
+                                            <select class="form-select" id="from" name="from_length" required>
+                                            <option value="-">-</option>                                               
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Berth to Metre</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Berth to Metre</label>
+                                            <select class="form-select" id="tlength" name="to_length" required>
+                                            <option value="-">-</option>                                               
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Berth Code</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Berth Code</label>
+                                            <select class="form-select" id="bcode" name="berth_code" required>
+                                            <option value="-">-</option>                                               
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">CY Code</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">CY Code</label>
+                                            <select class="form-select" id="cy" name="cy_code" required>
+                                            <option value="T">TPK</option>   
+                                            <option value="K">KON</option>                                              
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Berth Grid</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Berth Grid</label>
+                                            <input type="text"   name="berth_grid" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Btos Side</label>
-                                            <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Btoa Side</label>
+                                            <select class="form-select" id="side" name="btoa_side" required>
+                                            <option value="B">Berth</option>  
+                                            <option value="S">Ship</option>                                               
+                                        </select>
                                         </div>
                                     </div>
 
                                     <hr>
-                                    <h6>Booking Information</h6>
+                                    <!-- <h6>Booking Information</h6>
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label style="font-weight; bold;" for="first-name-column" >Export</label>
                                             <br>
                                             Booking
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
+                                            <input type="number" id="first-name-column" class="form-control" placeholder="" name="export_booking" required>
                                             Counter
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
+                                            <input type="text" id="first-name-column" class="form-control" placeholder="" name="export_counter" readonly>
+                                            <button type="refresh" onclick="refreshData()" class="btn btn-light-success me-1 mb-1">Refresh</button>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column">Import</label>
-                                            <br>
-                                            Booking
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
-                                            Counter
-                                            <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
-                                        </div>
-                                    </div>
+                                    </div> -->
+                                    <div class="table">
+                            <table class="table mb-0">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th><h4>Booking Information</h4></th>
+                                        <th>Import</th>
+                                        <th>Export</th>
+                                        <th>Action</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Booking</h5></td>
+                                        <td><input type="number"   name="import_booking" class="form-control"></td>
+                                        <td ><input type="number" name="export_booking" class="form-control"></td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Booking</h5></td>
+                                        <td><input type="number"   name="import_booking" class="form-control"></td>
+                                        <td ><input type="number" name="export_booking" class="form-control"></td>
+                                        <td>-</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                                    <
 
                                     <hr>
-                                    <h4>Time Schedule</h4>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column"><h5>Estimate</h5></label>
-                                            <br>
-                                            Arrival Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Anchorage Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Pilot Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Berthing Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Start Work Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            End Work Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Deparature Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="last-name-column"><h5>Actual</h5></label>
-                                            <br>
-                                            Arrival Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Anchorage Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Pilot Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Berthing Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Start Work Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            End Work Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                            Deparature Date
-                                            <input type="datetime-local" id="first-name-column" id="last-name-column" class="form-control">
-                                        </div>
-                                    </div>
+                                    
+                                    <div class="table">
+                            <table class="table mb-0">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th><h4>Time schedule</h4></th>
+                                        <th>Estimate</th>
+                                        <th>Actual</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Arrival Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}"  name="eta_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}"  name="arrival_date" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Anchorage Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_anchorage_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_anchorage_date" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Pilot Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_pilot_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_pilot_date" class="form-control"></td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Berthing Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_berthing_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="berthing_date" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Start Work Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_start_work_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_start_work_date" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>End Work Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_end_work_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_end_work_date" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-bold-500"><h5>Deparature Date</h5></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="etd_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="deparature_date" class="form-control"></td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                                    
 
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="city-column"><h6>Idle Time</h6></label>
-                                            <input type="datetime-local" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column"><h6>Idle Time</h6></label>
+                                            <input type="number" id="-column" class="form-control"  placeholder="" name="idle_time" required>
                                         </div>
                                     </div>
 
@@ -267,8 +357,8 @@
                                     <h4>Open Stack Information</h4>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Open Stack Date</label>
-                                            <input type="datetime-local" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Open Stack Date</label>
+                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" placeholder="" name="loading_date">
                                         </div>
                                     </div>
 
@@ -276,37 +366,258 @@
                                     <h4>Closing Time Information</h4>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Closing Date</label>
-                                            <input type="datetime-local" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Clossing Date</label>
+                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" placeholder="" name="doc_clossing_date">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="city-column">Cargo Closing Date</label>
-                                            <input type="datetime-local" id="city-column" class="form-control" placeholder="City" name="city-column">
+                                            <label for="-column">Cargo Closing Date</label>
+                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" placeholder="" name="clossing_date">
                                         </div>
                                     </div>
-
-
-                                    <div class="form-group col-12">
-                                        <div class="form-check">
-                                            <div class="checkbox">
-                                                <input type="checkbox" id="checkbox5" class="form-check-input" checked="">
-                                                <label for="checkbox5">Remember Me</label>
-                                            </div>
+                                    <hr>
+                                    <hr>
+                                    <br>
+                                    <div class="col-md-3 col-12">
+                                        <div class="form-group">
+                                            <label for="-column">User</label>
+                                            <input type="text" id="-column" class="form-control" value ="{{ Auth::user()->name }}" placeholder="{{ Auth::user()->name }}"  required readonly>
+                                            <input type="hidden" id="-column" class="form-control" value ="{{ Auth::user()->id }}" placeholder="{{ Auth::user()->name }}" name="user_id" required readonly>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div class="col-md-3 col-12">
+                                        <div class="form-group">
+                                            <label for="-column">Update Time</label>
+                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" name="update_time" required readonly>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <hr>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                         <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                     </div>
                                 </div>
                             </form>
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+@endsection
+
+@section('custom_js')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+
+<script>
+    $(function(){
+        $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+        $(function(){
+            $('#vescode'). on('change', function(){
+                let ves_code = $('#vescode').val();
+
+                $.ajax({
+                    type: 'POST',
+                url: '/getvessel',
+                    data : {ves_code : ves_code},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#vesname').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/getvessel_agent',
+                    data : {ves_code : ves_code},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#agent').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/getvessel_liner',
+                    data : {ves_code : ves_code},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#liner').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/reg_flag',
+                    data : {ves_code : ves_code},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#reg_flag').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/length',
+                    data : {ves_code : ves_code},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#length').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                
+            })
+        })
+        $(function(){
+            $('#berth'). on('change', function(){
+                let berth_no = $('#berth').val();
+
+                $.ajax({
+                    type: 'POST',
+                url: '/bcode',
+                    data : {berth_no : berth_no},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#bcode').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+               
+                $.ajax({
+                    type: 'POST',
+                    url: '/from',
+                    data : {berth_no : berth_no},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#from').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                    url: '/tlength',
+                    data : {berth_no : berth_no},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#tlength').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                
+            })
+        })
+        $(function(){
+            $('#service'). on('change', function(){
+                let service = $('#service').val();
+
+                $.ajax({
+                    type: 'POST',
+                url: '/origin',
+                    data : {service : service},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#origin').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+               
+                $.ajax({
+                    type: 'POST',
+                url: '/next',
+                    data : {service : service},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#next').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/dest',
+                    data : {service : service},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#dest').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                $.ajax({
+                    type: 'POST',
+                url: '/last',
+                    data : {service : service},
+                    cache: false,
+                    
+                    success: function(msg){
+                        $('#last').html(msg);
+                   
+                    },
+                    error: function(data){
+                        console.log('error:',data)
+                    },
+                })
+                
+            })
+        })
+    });
+</script>
+
+
 
 @endsection

@@ -53,5 +53,20 @@ Route::delete('/system/delete_user={id}', [SystemController::class, 'delete_user
 
 Route::get('/planning/vessel-schedule', [VesselController::class, 'index']);
 Route::get('/planning/create-schedule', [VesselController::class, 'create']);
+Route::post('/getvessel', [VesselController::class, 'getvessel'])->name('getvessel');
+Route::post('/getvessel_agent', [VesselController::class, 'getvessel_agent'])->name('getvessel_agent');
+Route::post('/getvessel_liner', [VesselController::class, 'getvessel_liner'])->name('getvessel_linert');
+Route::post('/reg_flag', [VesselController::class, 'reg_flag'])->name('reg_flag');
+Route::post('/length', [VesselController::class, 'length'])->name('length');
+Route::post('/bcode', [VesselController::class, 'bcode'])->name('bcode');
+Route::post('/from', [VesselController::class, 'from'])->name('from');
+Route::post('/tlength', [VesselController::class, 'tlength'])->name('tlength');
+Route::post('/origin', [VesselController::class, 'origin'])->name('origin');
+Route::post('/next', [VesselController::class, 'next'])->name('next');
+Route::post('/dest', [VesselController::class, 'dest'])->name('dest');
+Route::post('/last', [VesselController::class, 'last'])->name('last');
+Route::post('/planning/vessel_schedule_store', [VesselController::class, 'schedule_store'])->name('/planning/vessel_schedule_store');
+
+Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

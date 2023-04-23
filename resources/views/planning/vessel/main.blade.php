@@ -42,17 +42,17 @@
                     <tbody>
                     @foreach($vessel_voyage as $voyage)
                         <tr>
-                            <td>{{$voyage->VES_CODE}}</td>
-                            <td>{{$voyage->VES_ID}}</td>
-                            <td>{{$voyage->VOY_OUT}}</td>
-                            <td>{{$voyage->VOOY_IN}}</td>
-                            <td>{{$voyage->VES_NAME}}</td>
-                            <td>{{$voyage->AGENT}}</td>
-                            <td>{{$voyage->LINER}}</td>
-                            <td>{{$voyage->BERTHING_DATE}}</td>
-                            <td>{{$voyage->DEPARTURE_DATE}}</td>
+                            <td>{{$voyage->ves_code}}</td>
+                            <td>{{$voyage->ves_id}}</td>
+                            <td>{{$voyage->voy_out}}</td>
+                            <td>{{$voyage->voy_in}}</td>
+                            <td>{{$voyage->ves_name}}</td>
+                            <td>{{$voyage->agent}}</td>
+                            <td>{{$voyage->liner}}</td>
+                            <td>{{$voyage->berthing_date}}</td>
+                            <td>{{$voyage->deparature_date}}</td>
                             <td>
-                            <form action="#" method="POST">
+                            <form action="/planning/delete_schedule={{$voyage->ves_id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
