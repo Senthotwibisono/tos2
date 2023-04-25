@@ -81,5 +81,7 @@ class VVoyage extends Model
         'berth_code',
         'cy_code',
         'no_bc11',
+        'no_ppk',
+        'open_stack_date',
     ];
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
+use App\Http\Controllers\BayplanImportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,7 +67,11 @@ Route::post('/next', [VesselController::class, 'next'])->name('next');
 Route::post('/dest', [VesselController::class, 'dest'])->name('dest');
 Route::post('/last', [VesselController::class, 'last'])->name('last');
 Route::post('/planning/vessel_schedule_store', [VesselController::class, 'schedule_store'])->name('/planning/vessel_schedule_store');
-
+Route::get('/planning/schedule_schedule={ves_id}', [VesselController::class, 'edit_schedule']);
+Route::patch('/planning/schedule_update={ves_id}', [VesselController::class, 'update_schedule']);
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
+Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
+
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
