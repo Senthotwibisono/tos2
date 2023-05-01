@@ -56,7 +56,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn icon btn-danger"> <i class="bi bi-x"></i></button>
-                            <a href="#" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                            <a href="/planning/schedule_schedule={{$voyage->ves_id}}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
                             </form>
                         </tr>
                         @endforeach

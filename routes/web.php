@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
+<<<<<<< HEAD
 use App\Http\Controllers\MasterController;
+=======
+use App\Http\Controllers\BayplanImportController;
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,9 +71,11 @@ Route::post('/next', [VesselController::class, 'next'])->name('next');
 Route::post('/dest', [VesselController::class, 'dest'])->name('dest');
 Route::post('/last', [VesselController::class, 'last'])->name('last');
 Route::post('/planning/vessel_schedule_store', [VesselController::class, 'schedule_store'])->name('/planning/vessel_schedule_store');
-
+Route::get('/planning/schedule_schedule={ves_id}', [VesselController::class, 'edit_schedule']);
+Route::patch('/planning/schedule_update={ves_id}', [VesselController::class, 'update_schedule']);
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
+<<<<<<< HEAD
 
 //role master Port
 Route::get('/master/port', [MasterController::class, 'port']);
@@ -103,5 +109,9 @@ Route::get('/master/edit_service', [MasterController::class, 'edit_service']);
 
 
 
+=======
+Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+

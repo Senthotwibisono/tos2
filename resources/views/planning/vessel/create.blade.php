@@ -38,7 +38,7 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="-column">Vessel Name</label>
-                                            <select class="form-select" id="vesname" name="ves_name" required readonly>
+                                            <select class="form-select" id="vesname" name="ves_name" required readonly >
                                             <option value="-">-</option>                                
                                         </select>
                                         </div>
@@ -58,7 +58,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-column">Agent</label>
-                                            <select class="form-select" id="agent" name="agent" required readonly>
+                                            <select class="form-select" id="agent" name="agent" required readonly >
                                             <option value="-">-</option>                                
                                         </select>
                                         </div>
@@ -66,7 +66,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">Liner</label>
-                                            <select class="form-select" id="liner" name="liner" required readonly>
+                                            <select class="form-select" id="liner" name="liner" required readonly >
                                             <option value="-">-</option>                                
                                         </select>
                                         </div>
@@ -74,20 +74,20 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">Voy Owner</label>
-                                            <input type="text" id="-id-column" class="form-control" name="voy_owner" placeholder="" required>
+                                            <input type="text" id="-id-column" class="form-control" name="voyage_owner" placeholder="" required>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                        <input type="checkbox" name="checkbox_name" value="Y"> Export 
-                                        <input type="checkbox" name="checkbox_name" value="Y"> Import
+                                        <input type="checkbox" name="export_yn" value="Y"> Export 
+                                        <input type="checkbox" name="import_yn" value="Y"> Import
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                         <label for="-id-column">Liner/Tramp</label>
-                                            <select class="form-select" id="" name="linerortramp" required readonly required> 
+                                            <select class="form-select" id="" name="liner_tramp"  > 
                                             <option value="L">Liner</option>
                                             <option value="T">Tramp</option>                                   
                                         </select>
@@ -96,16 +96,16 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">Feeder/Direct</label>
-                                            <select class="form-select" id="" name="linerortramp" required readonly required>
-                                            <option value="A">Feeder</option>
-                                            <option value="B">Direct</option>                                   
+                                            <select class="form-select" id="" name="feeder_direct"  >
+                                            <option value="F">Feeder</option>
+                                            <option value="D">Direct</option>                                   
                                         </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">Vessel Service</label>
-                                            <select class="form-select" id="service" name="ves_service" required>
+                                            <select class="form-select" id="service" name="vessel_service" required>
                                             <option value="-">-</option>
                                                 @foreach($vessel_service as $service)
                                             <option value="{{$service->service}}">{{$service->service}}</option>
@@ -114,7 +114,7 @@
                                             </div>
                                         <div class="form-group">
                                         <label for="-id-column">Ocean/Interisland</label>
-                                            <select class="form-select" id="service" name="ves_service" required>
+                                            <select class="form-select" id="" name="ocean_interisland" required>
                                             <option value="O">Ocean Going</option>                                             
                                             <option value="I">Inter Island</option>
                                             </select>
@@ -123,7 +123,7 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">Reg Flag</label>
-                                            <select class="form-select" id="reg_flag" name="reg_flag" required readonly>
+                                            <select class="form-select" id="reg_flag" name="reg_flag" required readonly >
                                             <option value="-">-</option>                                
                                         </select>
                                         </div>
@@ -131,7 +131,7 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="-id-column">No PPK</label>
-                                            <input type="" id="-id-column" class="form-control" name="no_ppk" placeholder="" required>
+                                            <input type="text" id="-id-column" class="form-control" name="no_ppk" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
@@ -185,7 +185,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">Vessel Length</label>
-                                            <select class="form-select" id="length" name="length" required readonly>
+                                            <select class="form-select" id="length" name="ves_length" required readonly >
                                             <option value="-">-</option>                                
                                         </select>
                                         </div>
@@ -204,7 +204,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="-column">Berth Fr Metre</label>
-                                            <select class="form-select" id="from" name="from_length" required>
+                                            <select class="form-select" id="from" name="berth_fr_metre" required readonly >
                                             <option value="-">-</option>                                               
                                         </select>
                                         </div>
@@ -212,7 +212,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="-column">Berth to Metre</label>
-                                            <select class="form-select" id="tlength" name="to_length" required>
+                                            <select class="form-select" id="tlength" name="berth_to_metre" required readonly >
                                             <option value="-">-</option>                                               
                                         </select>
                                         </div>
@@ -220,7 +220,7 @@
                                     <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <label for="-column">Berth Code</label>
-                                            <select class="form-select" id="bcode" name="berth_code" required>
+                                            <select class="form-select" id="bcode" name="berth_code" required readonly >
                                             <option value="-">-</option>                                               
                                         </select>
                                         </div>
@@ -282,15 +282,15 @@
                                         <td>-</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-bold-500"><h5>Booking</h5></td>
-                                        <td><input type="number"   name="import_booking" class="form-control"></td>
-                                        <td ><input type="number" name="export_booking" class="form-control"></td>
+                                        <td class="text-bold-500"><h5>Counter</h5></td>
+                                        <td><input type="number"   name="import_counter" class="form-control"></td>
+                                        <td ><input type="number" name="export_counter" class="form-control"></td>
                                         <td>-</td>
                                     </tr>
                                     </tbody>
                             </table>
                         </div>
-                                    <
+                                    
 
                                     <hr>
                                     
@@ -308,37 +308,37 @@
                                     <tr>
                                         <td class="text-bold-500"><h5>Arrival Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}"  name="eta_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}"  name="arrival_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}"  name="arrival_date" class="form-control"  readonly ></td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold-500"><h5>Anchorage Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_anchorage_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_anchorage_date" class="form-control"></td>
+                                        <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_anchorage_date" class="form-control" readonly ></td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold-500"><h5>Pilot Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_pilot_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_pilot_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_pilot_date" class="form-control" readonly ></td>
                                     </tr>                                    
                                     <tr>
                                         <td class="text-bold-500"><h5>Berthing Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_berthing_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="berthing_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="berthing_date" class="form-control" readonly > </td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold-500"><h5>Start Work Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_start_work_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_start_work_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_start_work_date" class="form-control" readonly ></td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold-500"><h5>End Work Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="est_end_work_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_end_work_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="act_end_work_date" class="form-control" readonly ></td>
                                     </tr>
                                     <tr>
                                         <td class="text-bold-500"><h5>Deparature Date</h5></td>
                                         <td><input type="datetime-local" value="{{ $currentDateTimeString }}" name="etd_date" class="form-control"></td>
-                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="deparature_date" class="form-control"></td>
+                                        <td ><input type="datetime-local" value="{{ $currentDateTimeString }}" name="deparature_date" class="form-control" readonly ></td>
                                     </tr>
                                    
                                 </tbody>
@@ -358,7 +358,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="-column">Open Stack Date</label>
-                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" placeholder="" name="loading_date">
+                                            <input type="datetime-local" id="-column" class="form-control" value="{{ $currentDateTimeString }}" placeholder="" name="open_stack_date">
                                         </div>
                                     </div>
 

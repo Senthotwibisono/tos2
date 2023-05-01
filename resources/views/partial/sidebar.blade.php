@@ -35,6 +35,12 @@
                         <a href="form-element-checkbox.html">Load Planning - Bigger Vessel</a>
                     </li>
                     <li class="submenu-item ">
+                        <a href="/planning/bayplan_import">Bay Plan Import</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-element-checkbox.html">Bay Plan Export</a>
+                    </li>
+                    <li class="submenu-item ">
                         <a href="form-element-checkbox.html">Print Layout Bayplan All Bay</a>
                     </li>
                     <li class="submenu-item ">
