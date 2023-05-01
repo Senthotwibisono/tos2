@@ -426,13 +426,13 @@
                         <a href="/master/port">Port Maintenance</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-badge.html">Berth Maintenance</a>
+                        <a href="/master/berth">Berth Maintenance</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-breadcrumb.html">Vessel Maintenance</a>
+                        <a href="/master/vessel">Vessel Maintenance</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="component-button.html">Vessel Service Maintenance</a>
+                        <a href="/master/service">Vessel Service Maintenance</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="component-card.html">Agent- Liner Maintenance</a>

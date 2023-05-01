@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
+use App\Http\Controllers\MasterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +25,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('da
 //     return view('dashboard');
 // });  
 
-Route::get('/master/port', function () {
-    return view('master.port');
-});
+//Route::get('/master/port', function () {
+//    return view('master.port');
+//});
 
 Route::get('/invoice', function () {
     return view('invoice.dashboard');
@@ -68,5 +69,39 @@ Route::post('/last', [VesselController::class, 'last'])->name('last');
 Route::post('/planning/vessel_schedule_store', [VesselController::class, 'schedule_store'])->name('/planning/vessel_schedule_store');
 
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
+
+
+//role master Port
+Route::get('/master/port', [MasterController::class, 'port']);
+Route::post('/master/port_store', [MasterController::class, 'port_store'])->name('/master/port_store');
+Route::post('/master/port_edit_store', [MasterController::class, 'port_edit_store'])->name('/master/port_edit_store');
+Route::delete('/master/delete_port={port}', [MasterController::class, 'delete_port']);
+Route::get('/master/edit_port', [MasterController::class, 'edit_port']);
+
+//role master Vessel
+Route::get('/master/vessel', [MasterController::class, 'vessel']);
+Route::post('/master/vessel_store', [MasterController::class, 'vessel_store'])->name('/master/vessel_store');
+Route::post('/master/vessel_edit_store', [MasterController::class, 'vessel_edit_store'])->name('/master/vessel_edit_store');
+Route::delete('/master/delete_vessel={vessel}', [MasterController::class, 'delete_vessel']);
+Route::get('/master/edit_vessel', [MasterController::class, 'edit_vessel']);
+
+
+//role master VesBerthsel
+Route::get('/master/berth', [MasterController::class, 'berth']);
+Route::post('/master/berth_store', [MasterController::class, 'berth_store'])->name('/master/berth_store');
+Route::post('/master/berth_edit_store', [MasterController::class, 'berth_edit_store'])->name('/master/berth_edit_store');
+Route::delete('/master/delete_berth={berth_no}', [MasterController::class, 'delete_berth']);
+Route::get('/master/edit_berth', [MasterController::class, 'edit_berth']);
+
+
+//role Vessel Servicel
+Route::get('/master/service', [MasterController::class, 'service']);
+Route::post('/master/service_store', [MasterController::class, 'service_store'])->name('/master/service_store');
+Route::post('/master/service_edit_store', [MasterController::class, 'service_edit_store'])->name('/master/service_edit_store');
+Route::delete('/master/delete_service={service_code}', [MasterController::class, 'delete_service']);
+Route::get('/master/edit_service', [MasterController::class, 'edit_service']);
+
+
+
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

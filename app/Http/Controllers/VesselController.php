@@ -146,25 +146,13 @@ class VesselController extends Controller
 
     public function schedule_store(request $request){
         $request->validate([
-            'voy_in' => 'required|max:7',
-            'voy_out' => 'required|max:7',
-            'voy_owner' => 'required|max:4',
-            'berth_grid' => 'required|max:5',
-            'export_booking'=> 'required|max:11',
+            'Ves_code' => 'required|max:4',
+            
           
-          
-        
-            'billing_complate' => 'required|max:1',
-            'no_ppk' => 'required|max:20',
         ],
         [
-            'voy_in.max' => 'Kolom Voy In tidak boleh lebih dari 7 karakter.',
-            'voy_out.max' => 'Kolom Voy Out tidak boleh lebih dari 7 karakter.',
-            'voy_owner.max' => 'Kolom Voy Owner tidak boleh lebih dari 4 karakter.',
-           
-            'berth_grid.max' => 'Kolom Berth Grid tidak boleh lebih dari 5 karakter.',
-            'cy_code.max' => 'Kolom Cy Code tidak boleh lebih dari 1 karakter.',
-            'no_20.max' => 'Kolom No.PPK tidak boleh lebih dari 20 karakter.',
+            'ves_code.max' => 'vessel code  tidak boleh lebih dari 4 karakter.'
+          
         ]    
     );
 
