@@ -13,3 +13,4 @@
     <link rel="stylesheet" href="{{asset('dist/assets/css/pages/datatables.css')}}">
     <link rel="stylesheet" href="{{asset('dist/assets/extensions/simple-datatables/style.css')}}">
     <link rel="stylesheet" href="{{asset('dist/assets/css/pages/simple-datatables.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/assets/extensions/sweetalert2/sweetalert2.min.css')}}">

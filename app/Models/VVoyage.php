@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\VMaster;
+use Illuminate\Support\Str;
 
 class VVoyage extends Model
 {
@@ -18,6 +19,7 @@ class VVoyage extends Model
 {
     return $this->belongsTo(VMaster::class, 'vess_code');
 }
+
 
     protected $fillable = [
         'ves_code',

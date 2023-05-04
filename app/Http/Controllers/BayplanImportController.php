@@ -3,12 +3,220 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\VVoyage;
+use App\Models\Isocode;
+use App\Models\Item;
+use App\Models\Imocode;
+use App\Models\Port;
+use App\Models\User;
+use Auth;
+
+use Carbon\Carbon;
 
 class BayplanImportController extends Controller
 {
     public function index()
     {
-
-        return view('planning.bayplan.main');
+        
+        $item = Item::orderBy('container_key', 'desc')->get();
+        $users = User::all();
+        $isocode = Isocode::all();
+        $today = date('Y-m-d H:i:s');
+        $vessel_voyage = Vvoyage::all();
+        $vessel_import = VVoyage::whereDate('eta_date', '>', now())->get();
+        // where('eta_date', '>', $today)->get();
+        $currentDateTime = Carbon::now();
+        $currentDateTimeString = $currentDateTime->format('Y-m-d H:i:s');
+        $imocode = Imocode::all();
+        $port_master = Port::all();
+        return view('planning.bayplan.main', compact('item', 'currentDateTimeString', 'isocode', 'vessel_voyage', 'imocode', 'users','vessel_import', 'port_master'));
     }
+
+    public function size(request $request)
+    {
+        $iso_code = $request->iso_code;
+        $size = Isocode::where('iso_code', $iso_code)->get();
+        foreach ($size as $sz) {
+            echo "<option value='$sz->iso_size'>$sz->iso_size</option>";
+        }
+    }
+    public function type(request $request)
+    {
+        $iso_code = $request->iso_code;
+        $type = Isocode::where('iso_code', $iso_code)->get();
+        foreach ($type as $tp) {
+            echo "<option value='$tp->iso_type'>$tp->iso_type</option>";
+        }
+    }   
+    public function code(request $request)
+    {
+        $ves_id = $request->ves_id;
+        $code = VVoyage::where('ves_id', $ves_id)->get();
+        foreach ($code as $kode) {
+            echo "<option value='$kode->ves_code'>$kode->ves_code</option>";
+        }
+    }   
+    public function name(request $request)
+    {
+        $ves_id = $request->ves_id;
+        $name = VVoyage::where('ves_id', $ves_id)->get();
+        foreach ($name as $nam) {
+            echo "<option value='$nam->ves_name'>$nam->ves_name</option>";
+        }
+    } 
+    public function voy(request $request)
+    {
+        $ves_id = $request->ves_id;
+        $voy = VVoyage::where('ves_id', $ves_id)->get();
+        foreach ($voy as $out) {
+            echo "<option value='$out->voy_out'>$out->voy_out</option>";
+        }
+    }   
+    public function agent(request $request)
+    {
+        $ves_id = $request->ves_id;
+        $agent = VVoyage::where('ves_id', $ves_id)->get();
+        foreach ($agent as $ag) {
+            echo "<option value='$ag->agent'>$ag->agent</option>";
+        }
+    }     
+
+    public function store(request $request)
+    {
+        $request->validate([
+
+        ]);
+
+        $item = Item::create([
+        'container_no'=>$request->container_no,
+        'ves_id'=>$request->ves_id,
+        'ves_code'=>$request->ves_code,
+        'ves_name'=>$request->ves_name,
+        'voy_no'=>$request->voy_no,
+        'ctr_i_e_t'=>$request->ctr_i_e_t,
+        'ctr_size'=>$request->ctr_size,
+        'ctr_type'=>$request->ctr_type,
+        'ctr_status'=>$request->ctr_status,
+        'ctr_intern_status'=>$request->ctr_intern_status,
+        'disc_load_trans_shift'=>$request->disc_load_trans_shift,
+        'gross'=>$request->gross,
+        'gross_class'=>$request->gross_class,
+        'over_height'=>$request->over_height,
+        'over_weight'=>$request->over_weight,
+        'over_length'=>$request->over_length,
+        'commodity_name'=>$request->commodity_name,
+        'load_port'=>$request->load_port,
+        'disch_port'=>$request->disch_port,
+        'agent'=>$request->agent,
+        'chilled_temp'=>$request->chilled_temp,
+        'imo_code'=>$request->imo_code,
+        'dangerous_yn'=>$request->dangerous_yn,
+        'dangerous_label_yn'=>$request->dangerous_label_yn,
+        'bl_no'=>$request->bl_no,
+        'seal_no'=>$request->seal_no,
+        'disc_load_seq'=>$request->disc_load_seq,
+        'bay_slot'=>$request->bay_slot,
+        'bay_row'=>$request->bay_row,
+        'bay_tier'=>$request->bay_tier,
+        'iso_code'=>$request->iso_code,
+        'ctr_opr'=>$request->ctr_opr,
+        'user_id'=>$request->user_id,
+        ]);
+
+        return back();
+    }
+
+    public function edit(Request $request)
+    {   
+        $container_key = $request->container_key;
+        $item = Item::where('container_key',$container_key)->first();
+
+        return response()->json([
+            'success' => 200,
+            'message' => 'Detail Data Post',
+            'data'    => $item  
+        ]); 
+    }
+    public function size_edit(request $request)
+    {
+        $iso_code = $request->iso_code;
+        $size = Isocode::where('iso_code', $iso_code)->get();
+        foreach ($size as $sz) {
+            echo "<option value='$sz->iso_size'>$sz->iso_size</option>";
+        }
+    }
+    public function get_iso_type(Request $request)
+{
+    $iso_code = $request->iso_code;
+    $type = Isocode::where('iso_code', $iso_code)->first();
+   
+    if ($type) {
+        return response()->json(['isotype_edit' => $type->iso_type, 'isosize_edit' => $type->iso_size]);
+    }
+    return response()->json(['isotype_edit' => 'data tidak ditemukan', 'isosize_edit' => 'data tidak ditemukan']);
+}
+
+public function get_ves_name(Request $request)
+{
+    $ves_id = $request->ves_id;
+    $name = VVoyage::where('ves_id', $ves_id)->first();
+   
+    if ($name) {
+        return response()->json(['vesname_edit' => $name->ves_name, 'vescode_edit' => $name->ves_code, 'voy_edit' => $name->voy_out,'agent_edit' => $name->agent ]);
+    }
+    return response()->json(['vesname_edit' => 'data tidak ditemukan', 'vescode_edit' => 'data tidak ditemukan', 'voy_edit' => 'data tidak ditemukan', 'agent_edit' => 'data tidak ditemukan']);
+}
+
+    public function update_bayplanimport(Request $request)
+    {
+        $container_key = $request->container_key;
+        $item = Item::where('container_key',$container_key)->first();
+            Item::where('container_key', $container_key)->update([
+            'container_no' => $request->container_no,
+            'ves_id' => $request->ves_id,
+            'ves_code' => $request->ves_code,
+            'ves_name' => $request->ves_name,
+            'voy_no' => $request->voy_no,
+            'ctr_size' => $request->ctr_size,
+            'ctr_type' => $request->ctr_type,
+            'ctr_status' => $request->ctr_status,
+            'disc_load_trans_shift' => $request->disc_load_trans_shift,
+            'gross' => $request->gross,
+            'gross_class' => $request->gross_class,
+            'over_height' => $request->over_height,
+            'over_weight' => $request->over_weight,
+            'over_length' => $request->over_length,
+            'commodity_name' => $request->commodity_name,
+            'load_port' => $request->load_port,
+            'disch_port' => $request->disch_port,
+            'agent' => $request->agent,
+            'chilled_temp' => $request->chilled_temp,
+            'imo_code' => $request->imo_code,
+            'dangerous_yn' => $request->dangerous_yn,
+            'dangerous_label_yn' => $request->dangerous_label_yn,
+            'bl_no' => $request->bl_no,
+            'seal_no' => $request->seal_no,
+            'disc_load_seq' => $request->disc_load_seq,
+            'bay_slot' => $request->bay_slot,
+            'bay_row' => $request->bay_row,
+            'bay_tier' => $request->bay_tier,
+            'iso_code' => $request->iso_code,
+            'ctr_opr' => $request->ctr_opr,
+        ]);
+    
+            return response()->json([
+                'success' => 400,
+                'message' => 'updated successfully!',
+                'data'    => $item,
+            ]);
+    }
+
+    public function delete_item($container_key)
+    {
+        
+        Item::where('container_key',$container_key)->delete();
+        return back();
+    }
+
 }

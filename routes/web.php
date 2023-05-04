@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
 use App\Http\Controllers\BayplanImportController;
+use App\Http\Controllers\DischargeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,6 +73,23 @@ Route::patch('/planning/schedule_update={ves_id}', [VesselController::class, 'up
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
+Route::post('/getsize', [BayplanImportController::class, 'size']);
+Route::post('/gettype', [BayplanImportController::class, 'type']);
+Route::post('/getcode', [BayplanImportController::class, 'code']);
+Route::post('/getname', [BayplanImportController::class, 'name']);
+Route::post('/getvoy', [BayplanImportController::class, 'voy']);
+Route::post('/getagent', [BayplanImportController::class, 'agent']);
+Route::post('/planning/bayplan_import', [BayplanImportController::class, 'store']);
+Route::get('/planning/edit_bayplanimport_{container_key}', [BayplanImportController::class, 'edit']);
+Route::post('/getsize_edit', [BayplanImportController::class, 'size_edit']);
+Route::post('/gettype_edit', [BayplanImportController::class, 'type_edit']);
+Route::post('/get-iso-type', [BayplanImportController::class, 'get_iso_type']);
+Route::post('/get-iso-size', [BayplanImportController::class, 'get_iso_size']);
+Route::post('/get-ves-name', [BayplanImportController::class, 'get_ves_name']);
+Route::post('/planning/update_bayplanimport', [BayplanImportController::class, 'update_bayplanimport']);
+Route::delete('/planning/delete_item={container_key}', [BayplanImportController::class, 'delete_item']);
+
+Route::get('/disch/confrim_disch', [DischargeController::class, 'index']);
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Uuid;
 
 return new class extends Migration
 {
@@ -15,7 +16,7 @@ return new class extends Migration
 			'vessel_voyage',
 			function (Blueprint $table) {
 
-                $table->bigIncrements('ves_id');
+                $table->uuid('ves_id')->primary();
                 $table->unsignedBigInteger('ves_code');
                 $table->char('voy_in', 7)->nullable();
                 $table->char('voy_out', 7)->nullable();

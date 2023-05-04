@@ -42,8 +42,8 @@
                     <tbody>
                     @foreach($vessel_voyage as $voyage)
                         <tr>
-                            <td>{{$voyage->ves_code}}</td>
-                            <td>{{$voyage->ves_id}}</td>
+                            <td>{{$voyage->ves_code}}</td>                            
+                            <td>{{str_pad($voyage->ves_id,4,'0', STR_PAD_LEFT)}}</td>
                             <td>{{$voyage->voy_out}}</td>
                             <td>{{$voyage->voy_in}}</td>
                             <td>{{$voyage->ves_name}}</td>

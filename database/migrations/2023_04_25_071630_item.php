@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create(
 			'item',
 			function (Blueprint $table) {
-        $table->bigIncrements('container_key',);
+        $table->bigIncrements('container_key');
         $table->char('container_no',13)->nullable();
         $table->unsignedBigInteger('ves_id');
         $table->char('ves_code',7)->nullable();

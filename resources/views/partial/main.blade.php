@@ -59,6 +59,8 @@
     <script src="{{asset('fontawesome/js/all.min.js')}}"></script>
     <script src="{{asset('dist/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
     <script src="{{asset('dist/assets/js/pages/simple-datatables.js')}}"></script>
+    <script src="{{asset('dist/assets/extensions/sweetalert2/sweetalert2.min.js')}}"></script>    
+    <script src="{{asset('dist/assets/js/pages/sweetalert2.js')}}"></script>
     @yield('custom_js')
 </body>
 
