@@ -146,18 +146,23 @@ class VesselController extends Controller
 
     public function schedule_store(request $request){
         $request->validate([
+<<<<<<< HEAD
+            'Ves_code' => 'required|max:4',
+            
+=======
             'voy_in' => 'required|max:7',
             'voy_out' => 'required|max:7',
             'voyage_owner' => 'required|max:4',
             'berth_grid' => 'required|max:5',
             'export_booking'=> 'required|max:11',
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
           
-          
-        
-            'billing_complate' => 'required|max:1',
-            'no_ppk' => 'required|max:20',
         ],
         [
+<<<<<<< HEAD
+            'ves_code.max' => 'vessel code  tidak boleh lebih dari 4 karakter.'
+          
+=======
             'voy_in.max' => 'Kolom Voy In tidak boleh lebih dari 7 karakter.',
             'voy_out.max' => 'Kolom Voy Out tidak boleh lebih dari 7 karakter.',
             'voyage_owner.max' => 'Kolom Voy Owner tidak boleh lebih dari 4 karakter.',
@@ -165,6 +170,7 @@ class VesselController extends Controller
             'berth_grid.max' => 'Kolom Berth Grid tidak boleh lebih dari 5 karakter.',
             'cy_code.max' => 'Kolom Cy Code tidak boleh lebih dari 1 karakter.',
             'no_ook.max' => 'Kolom No.PPK tidak boleh lebih dari 20 karakter.',
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
         ]    
     );
 

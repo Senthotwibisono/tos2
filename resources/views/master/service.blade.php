@@ -6,7 +6,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Port Master</h3>
+                <h3>Vessel Service</h3>
                 <p class="text-subtitle text-muted">A sortable, searchable, paginated table without dependencies thanks to simple-datatables</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -30,24 +30,26 @@
                 <table class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns" id="table1">
                     <thead>
                         <tr>
-                            <th>Port</th>
-                            <th>Country Name</th>
-                            <th>Description</th>                          
+                            <th>Service Code</th>
+                            <th>Disch Port</th>
+                            <th>User Name</th>   
+                            <th>Update Time</th>                          
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($port_master as $port)
+                    @foreach($vessel_service as $service)
                         <tr>
-                            <td>{{$port->port}}</td>
-                            <td>{{$port->country_name}}</td>
-                            <td>{{$port->descr}}</td>
+                            <td>{{$service->service}}</td>
+                            <td>{{$service->disch_port}}</td>
+                            <td>{{$service->user_id}}</td>
+                            <td>{{$service->update_time}}</td>
                           
                             <td>
-                            <form action="/master/delete_port={{$port->port}}" method="POST">
+                            <form action="/master/delete_service={{$service->service_code}}" method="POST">
                                @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn icon btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus record ini?')"> <i class="bi bi-x"></i></button>                             
-                                <a href="javascript:void(0)" class="btn btn-primary edit-modal" data-id="{{ $port->port }}" ><i class="bi bi-pencil"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-primary edit-modal" data-id="{{ $service->service_code }}" ><i class="bi bi-pencil"></i></a>
 
                             </form>
 
@@ -76,38 +78,21 @@
                         <div class="col-md-12">
                             
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Port</label>
+                                <label class="col-sm-3 control-label">Service Code</label>
                                 <div class="col-sm-6">
-                                    <input type="text"  class="form-control" name="port" id="port"  required />
+                                    <input type="text"  class="form-control" name="service_code" id="service_code"  required />
                                 </div>
                             </div>                            
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">UN Country</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="un_country" id="un_country" readonly />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">UN Port</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="un_port" id="un_port" readonly/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Country Name </label>
-                                <div class="col-sm-6">
-                                    <textarea class="form-control" name="country_name" id="country_name"></textarea>
-                                </div>
+                                <label for="-id-column">Disch Port</label>
+                                <select class="form-select" id="disch_port" name="disch_port" required>
+                                  
+                                  @foreach($port_master as $port)
+                                    <option value="{{$port->port}}">{{$port->port}}</option>
+                                  @endforeach
+                                </select>
                             </div>
                             
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Description </label>
-                                <div class="col-sm-6">
-                                    <textarea class="form-control" name="descr" id="descr"></textarea>
-                                </div>
-                            </div>
-
                             <input type="hidden" id="-column" class="form-control" value ="{{ Auth::user()->id }}" placeholder="{{ Auth::user()->name }}" name="user_id" required readonly>
 
 
@@ -117,7 +102,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                 
-                  <button type="submit" class="btn btn-primary">Create Port</button>
+                  <button type="submit" class="btn btn-primary">Create Vessel Service</button>
                 </div>
             </form>
         </div><!-- /.modal-content -->

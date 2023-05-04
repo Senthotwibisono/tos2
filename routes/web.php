@@ -3,8 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
+<<<<<<< HEAD
+use App\Http\Controllers\MasterController;
+=======
 use App\Http\Controllers\BayplanImportController;
+<<<<<<< HEAD
 use App\Http\Controllers\DischargeController;
+=======
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
+>>>>>>> e99eb6c42dc3da0c1d5bb951217be727a181a2b6
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +33,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('da
 //     return view('dashboard');
 // });  
 
-Route::get('/master/port', function () {
-    return view('master.port');
-});
+//Route::get('/master/port', function () {
+//    return view('master.port');
+//});
 
 Route::get('/invoice', function () {
     return view('invoice.dashboard');
@@ -72,7 +79,43 @@ Route::get('/planning/schedule_schedule={ves_id}', [VesselController::class, 'ed
 Route::patch('/planning/schedule_update={ves_id}', [VesselController::class, 'update_schedule']);
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
+<<<<<<< HEAD
+
+//role master Port
+Route::get('/master/port', [MasterController::class, 'port']);
+Route::post('/master/port_store', [MasterController::class, 'port_store'])->name('/master/port_store');
+Route::post('/master/port_edit_store', [MasterController::class, 'port_edit_store'])->name('/master/port_edit_store');
+Route::delete('/master/delete_port={port}', [MasterController::class, 'delete_port']);
+Route::get('/master/edit_port', [MasterController::class, 'edit_port']);
+
+//role master Vessel
+Route::get('/master/vessel', [MasterController::class, 'vessel']);
+Route::post('/master/vessel_store', [MasterController::class, 'vessel_store'])->name('/master/vessel_store');
+Route::post('/master/vessel_edit_store', [MasterController::class, 'vessel_edit_store'])->name('/master/vessel_edit_store');
+Route::delete('/master/delete_vessel={vessel}', [MasterController::class, 'delete_vessel']);
+Route::get('/master/edit_vessel', [MasterController::class, 'edit_vessel']);
+
+
+//role master VesBerthsel
+Route::get('/master/berth', [MasterController::class, 'berth']);
+Route::post('/master/berth_store', [MasterController::class, 'berth_store'])->name('/master/berth_store');
+Route::post('/master/berth_edit_store', [MasterController::class, 'berth_edit_store'])->name('/master/berth_edit_store');
+Route::delete('/master/delete_berth={berth_no}', [MasterController::class, 'delete_berth']);
+Route::get('/master/edit_berth', [MasterController::class, 'edit_berth']);
+
+
+//role Vessel Servicel
+Route::get('/master/service', [MasterController::class, 'service']);
+Route::post('/master/service_store', [MasterController::class, 'service_store'])->name('/master/service_store');
+Route::post('/master/service_edit_store', [MasterController::class, 'service_edit_store'])->name('/master/service_edit_store');
+Route::delete('/master/delete_service={service_code}', [MasterController::class, 'delete_service']);
+Route::get('/master/edit_service', [MasterController::class, 'edit_service']);
+
+
+
+=======
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
+<<<<<<< HEAD
 Route::post('/getsize', [BayplanImportController::class, 'size']);
 Route::post('/gettype', [BayplanImportController::class, 'type']);
 Route::post('/getcode', [BayplanImportController::class, 'code']);
@@ -90,6 +133,9 @@ Route::post('/planning/update_bayplanimport', [BayplanImportController::class, '
 Route::delete('/planning/delete_item={container_key}', [BayplanImportController::class, 'delete_item']);
 
 Route::get('/disch/confrim_disch', [DischargeController::class, 'index']);
+=======
+>>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
+>>>>>>> e99eb6c42dc3da0c1d5bb951217be727a181a2b6
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
