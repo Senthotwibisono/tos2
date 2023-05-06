@@ -3,11 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
-<<<<<<< HEAD
 use App\Http\Controllers\MasterController;
-=======
 use App\Http\Controllers\BayplanImportController;
->>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,7 +72,6 @@ Route::get('/planning/schedule_schedule={ves_id}', [VesselController::class, 'ed
 Route::patch('/planning/schedule_update={ves_id}', [VesselController::class, 'update_schedule']);
 Route::delete('/planning/delete_schedule={ves_id}', [VesselController::class, 'delete_schedule']);
 
-<<<<<<< HEAD
 
 //role master Port
 Route::get('/master/port', [MasterController::class, 'port']);
@@ -104,14 +100,26 @@ Route::get('/master/edit_berth', [MasterController::class, 'edit_berth']);
 Route::get('/master/service', [MasterController::class, 'service']);
 Route::post('/master/service_store', [MasterController::class, 'service_store'])->name('/master/service_store');
 Route::post('/master/service_edit_store', [MasterController::class, 'service_edit_store'])->name('/master/service_edit_store');
-Route::delete('/master/delete_service={service_code}', [MasterController::class, 'delete_service']);
+Route::delete('/master/delete_service={service_id}', [MasterController::class, 'delete_service']);
 Route::get('/master/edit_service', [MasterController::class, 'edit_service']);
 
 
+//role ISO Code
+Route::get('/master/isocode', [MasterController::class, 'isocode']);
+Route::post('/master/isocode_store', [MasterController::class, 'isocode_store'])->name('/master/isocode_store');
+Route::post('/master/isocode_edit_store', [MasterController::class, 'isocode_edit_store'])->name('/master/isocode_edit_store');
+Route::delete('/master/delete_isocode={iso_code}', [MasterController::class, 'delete_isocode']);
+Route::get('/master/edit_isocode', [MasterController::class, 'edit_isocode']);
 
-=======
+
+
+//role Yard Block
+Route::get('/master/block', [MasterController::class, 'block']);
+Route::post('/master/block_store', [MasterController::class, 'block_store'])->name('/master/block_store');
+Route::get('/master/edit_block', [MasterController::class, 'edit_block']);
+
+
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
->>>>>>> 14a404aa7ba6f04e1490a482b703944e358f0e17
 
 Route::middleware('role:admin')->get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
