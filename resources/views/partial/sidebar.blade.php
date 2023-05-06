@@ -160,7 +160,7 @@
                     </li>
                     <hr>
                     <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Placement Container</a>
+                        <a href="/yard/placement">Placement Container</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="form-element-textarea.html">Yard Display</a>

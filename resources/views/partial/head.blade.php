@@ -14,3 +14,25 @@
     <link rel="stylesheet" href="{{asset('dist/assets/extensions/simple-datatables/style.css')}}">
     <link rel="stylesheet" href="{{asset('dist/assets/css/pages/simple-datatables.css')}}">
     <link rel="stylesheet" href="{{asset('dist/assets/extensions/sweetalert2/sweetalert2.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.min.css') }}">
+    <style>
+    .select2-container--default .select2-selection--single {
+        border-radius:.3rem;
+        font-size:1.25rem;
+        min-height:calc(1.5em + 1rem + 2px);
+        padding:.5rem 1rem;
+        background-color: #010f1c;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #fff;
+  }
+   
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: calc(2.5rem + 2px);
+    background-color: #010f1c;
+  }
+</style>
+    <link rel="stylesheet" href="{{ asset('query-ui/jquery-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('query-ui/jquery-ui.min.css') }}">
+

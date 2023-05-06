@@ -45,37 +45,31 @@
                                 <th>Tier</th>
                                 <th>Load Port</th>
                                 <th>Origin Port</th>
-                                <th>Update Time</th>
+                                <th>Last Update</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($item as $itm)
+                        @foreach($formattedData as $d)
                                 <tr>
-                                <td>{{str_pad($itm->ves_id,4,'0', STR_PAD_LEFT)}}</td>
-                                    <td>{{$itm->voy_no}}</td>
-                                    <td>{{$itm->disc_load_seq}}</td>
-                                    <td>{{$itm->container_no}}</td>
-                                    <td>{{$itm->ctr_size}}</td>
-                                    <td>{{$itm->ctr_type}}</td>
-                                    <td>{{$itm->ctr_status}}</td>
-                                    <td>{{$itm->gross}}</td>
-                                    <td>{{$itm->bay_slot}}</td>
-                                    <td>{{$itm->bay_row}}</td>
-                                    <td>{{$itm->bay_tier}}</td>
-                                    <td>{{$itm->load_port}}</td>
-                                    <td>{{$itm->org_port}}</td>
-                                    <td>{{$itm->update_time}}</td>
+                                    <td>{{ str_pad($d['ves_id'],4,'0', STR_PAD_LEFT)}}</td>
+                                    <td>{{$d['voy_no']}}</td>
+                                    <td>{{$d['disc_load_seq']}}</td>
+                                    <td>{{$d['container_no']}}</td>
+                                    <td>{{$d['ctr_size']}}</td>
+                                    <td>{{$d['ctr_type']}}</td>
+                                    <td>{{$d['ctr_status']}}</td>
+                                    <td>{{$d['gross']}}</td>
+                                    <td>{{$d['bay_slot']}}</td>
+                                    <td>{{$d['bay_row']}}</td>
+                                    <td>{{$d['bay_tier']}}</td>
+                                    <td>{{$d['load_port']}}</td>
+                                    <td>{{$d['org_port']}}</td>
+                                    <td>{{$d['update_time']}}</td>
                                     <td>
                                         <div class="btn-group">
-                                        <a href="javascript:void(0)" class="btn btn-primary edit-modal"  data-id="{{ $itm->container_key }}" ><i class="bi bi-pencil"></i></a>
-                                        <!-- <form action="/planning/delete_item={{$itm->container_key}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn icon btn-danger"> <i
-                                                    class="bi bi-x"></i></button>
-                                             
-                                        </form> -->
+                                        <a href="javascript:void(0)" class="btn btn-primary edit-modal"  data-id="{{ $d['container_key'] }}" ><i class="bi bi-pencil"></i></a>
+                                      
                                         </div>
                                         </td>
                                 </tr>
@@ -568,6 +562,8 @@
                                                      <div class="form-group">
                                                          <label for="-id-column">Tier</label>
                                                          <input type="text" id="tier_edit" class="form-control" name="bay_tier" placeholder="" required>
+                                                         <input type="hidden" id="user_update" class="form-control" value="{{ Auth::user()->id }}" name="user_id" placeholder="" required>
+
                                                      </div>
                                                  </div>
                                             </div>        
@@ -749,6 +745,7 @@ $(document).on('click', '.update_item', function(e){
        'bay_tier': $('#tier_edit').val(),
        'iso_code': $('#isocode_edit').val(),
        'ctr_opr': $('#opr_edit').val(),
+       'user_id': $('#user_update').val(),
     }
     $.ajaxSetup({
     headers: {

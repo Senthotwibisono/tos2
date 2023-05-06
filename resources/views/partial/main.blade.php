@@ -52,15 +52,19 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="{{asset('dist/assets/js/bootstrap.js')}}"></script>
     <script src="{{asset('dist/assets/js/app.js')}}"></script>
     <script src="{{asset('fontawesome/js/all.js')}}"></script>
     <script src="{{asset('fontawesome/js/all.min.js')}}"></script>
     <script src="{{asset('dist/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>
     <script src="{{asset('dist/assets/js/pages/simple-datatables.js')}}"></script>
+    <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"></script>
     <script src="{{asset('dist/assets/extensions/sweetalert2/sweetalert2.min.js')}}"></script>    
     <script src="{{asset('dist/assets/js/pages/sweetalert2.js')}}"></script>
+    <!-- <script src="{{ asset('query-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('query-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
+    <script src="{{asset('jquery-3.6.4.min.js')}}" type="text/javascript"></script> -->
     @yield('custom_js')
 </body>
 

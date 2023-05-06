@@ -20,6 +20,43 @@ class BayplanImportController extends Controller
     {
         
         $item = Item::orderBy('container_key', 'desc')->get();
+        $formattedData = [];
+
+        foreach ($item as $tem) {
+            $now = Carbon::now();
+            $updatedAt = Carbon::parse($tem->update_time);
+
+            // Perhitungan selisih waktu
+            $diff = $updatedAt->diffForHumans($now);
+
+            // Jika selisih waktu kurang dari 1 hari, maka tampilkan format jam
+            if ($updatedAt->diffInDays($now) < 1) {
+                $diff = $updatedAt->diffForHumans($now, true);
+                $diff = str_replace(['hours', 'hour'], ['jam', 'jam'], $diff);
+            } else {
+                // Jika selisih waktu lebih dari 1 hari, maka tampilkan format hari dan jam
+                $diff = $updatedAt->diffForHumans($now, true);
+                $diff = str_replace(['days', 'day', 'hours', 'hour'], ['hari', 'hari', 'jam', 'jam'], $diff);
+            }
+
+            $formattedData[] = [
+                'ves_id' => $tem->ves_id,
+                'voy_no' => $tem->voy_no,
+                'disc_load_seq' => $tem->disc_load_seq,
+                'container_no' => $tem->container_no,
+                'ctr_size' => $tem->ctr_size,
+                'ctr_type' => $tem->ctr_type,
+                'ctr_status' => $tem->ctr_status,
+                'gross' => $tem->gross,
+                'bay_slot' => $tem->bay_slot,
+                'bay_row' => $tem->bay_row,
+                'bay_tier' => $tem->bay_tier,
+                'load_port' => $tem->load_port,
+                'org_port' => $tem->org_port,
+                'update_time' => $diff . ' yang lalu',
+                'container_key' => $tem->container_key
+            ];
+        }
         $users = User::all();
         $isocode = Isocode::all();
         $today = date('Y-m-d H:i:s');
@@ -30,7 +67,7 @@ class BayplanImportController extends Controller
         $currentDateTimeString = $currentDateTime->format('Y-m-d H:i:s');
         $imocode = Imocode::all();
         $port_master = Port::all();
-        return view('planning.bayplan.main', compact('item', 'currentDateTimeString', 'isocode', 'vessel_voyage', 'imocode', 'users','vessel_import', 'port_master'));
+        return view('planning.bayplan.main', compact('item', 'currentDateTimeString', 'isocode', 'vessel_voyage', 'imocode', 'users','vessel_import', 'port_master', 'formattedData'));
     }
 
     public function size(request $request)
@@ -146,7 +183,7 @@ class BayplanImportController extends Controller
             echo "<option value='$sz->iso_size'>$sz->iso_size</option>";
         }
     }
-    public function get_iso_type(Request $request)
+public function get_iso_type(Request $request)
 {
     $iso_code = $request->iso_code;
     $type = Isocode::where('iso_code', $iso_code)->first();
@@ -203,6 +240,7 @@ public function get_ves_name(Request $request)
             'bay_tier' => $request->bay_tier,
             'iso_code' => $request->iso_code,
             'ctr_opr' => $request->ctr_opr,
+            'user_id'=> $request->user_id,
         ]);
     
             return response()->json([
