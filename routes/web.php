@@ -3,8 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
-use App\Http\Controllers\MasterController;
 use App\Http\Controllers\BayplanImportController;
+use App\Http\Controllers\DischargeController;
+use App\Http\Controllers\PlacementController;
+use App\Http\Controllers\MasterController;
+use App\Http\Controllers\EdiController;
+use App\Http\Controllers\YardrotController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +31,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('da
 //     return view('dashboard');
 // });  
 
-//Route::get('/master/port', function () {
-//    return view('master.port');
-//});
+Route::get('/master/port', function () {
+    return view('master.port');
+});
 
 Route::get('/invoice', function () {
     return view('invoice.dashboard');
@@ -117,6 +122,19 @@ Route::get('/master/edit_isocode', [MasterController::class, 'edit_isocode']);
 Route::get('/master/block', [MasterController::class, 'block']);
 Route::post('/master/block_store', [MasterController::class, 'block_store'])->name('/master/block_store');
 Route::get('/master/edit_block', [MasterController::class, 'edit_block']);
+
+//role EDI Baplie recievr
+Route::get('/edi/receiveedi', [EdiController::class, 'receiveedi']);
+Route::post('/edi/receiveeditxt_store', [EdiController::class, 'receiveeditxt_store'])->name('/edi/receiveeditxt_store');
+Route::delete('/edi/delete_itembayplan={container_key}', [EdiController::class, 'delete_itembayplan']);
+Route::get('/edi/edit_itembayplan', [EdiController::class, 'edit_itembayplan']);
+
+
+
+route::resource('yards/rowtier', YardrotController::class);
+route::post('yards/rowtier/get_rowtier', [YardrotController::class, 'get_rowtier'])->name('rowtier.get_rowtier');
+
+
 
 
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);

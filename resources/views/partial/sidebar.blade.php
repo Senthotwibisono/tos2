@@ -103,7 +103,7 @@
                         <a href="extra-component-sweetalert.html">Loading Confirm Without Plan</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-toastify.html">Discharge Confirm</a>
+                        <a href="/disch/confrim_disch">Discharge Confirm</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="extra-component-rating.html">Entry Hatch Move</a>
@@ -160,7 +160,7 @@
                     </li>
                     <hr>
                     <li class="submenu-item ">
-                        <a href="form-element-checkbox.html">Placement Container</a>
+                        <a href="/yard/placement">Placement Container</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="form-element-textarea.html">Yard Display</a>
