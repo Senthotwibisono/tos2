@@ -15,7 +15,7 @@ class Block extends Model
                'yard_block', 
                'yard_slot',
                'yard_row',
-               'yard_tier' ,
+               'yard_tier',
                'user_id' 
     ];          
 }

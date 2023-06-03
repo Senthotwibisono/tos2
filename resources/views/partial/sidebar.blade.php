@@ -163,7 +163,7 @@
                         <a href="/yard/placement">Placement Container</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-element-textarea.html">Yard Display</a>
+                        <a href="{{ route('rowtier.index') }}">Yard Display</a>
                     </li> <li class="submenu-item ">
                         <a href="form-element-checkbox.html">Yard View</a>
                     </li>
@@ -276,7 +276,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-element-input.html">Baplie Arriva</a>
+                        <a href="/edi/receiveedi">Baplie Arrival</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="form-element-input-group.html">Baplie  Deparature</a>
@@ -286,7 +286,6 @@
             
 
              <!-- Report -->
-
              <li
                 class="sidebar-item has-sub">
                 <a href="#" class='sidebar-link'>
@@ -301,7 +300,7 @@
                         <a href="layout-vertical-1-column.html">History Container Equal</a>
                     </li>
                     <li class="submenu-item">
-                        <a href="layout-vertical-navbar.html">Yard Display</a>
+                        <a href="{{ route('rowtier.index') }}">Yard Display</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="layout-rtl.html">Vessel Activity Monitoring</a>
