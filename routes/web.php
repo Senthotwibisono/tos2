@@ -10,6 +10,7 @@ use App\Http\Controllers\DischargeController;
 use App\Http\Controllers\MasterController;
 // use App\Http\Controllers\EdiController;
 use App\Http\Controllers\YardrotController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,7 +147,7 @@ Route::group([
         ])->name('rowtier.get_rowtier');
         Route::resource('/rowtier', YardrotController::class);
     });
-    /*    Route::group([
+    Route::group([
         'prefix' => 'reports',
         'as' => 'reports.'
     ], function () {
@@ -166,7 +167,7 @@ Route::group([
             return view('reports.hist.blank');
         })->name('hist.blank');
         Route::resource('/hist', HistoryController::class);
-    });*/
+    });
 });
 
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
