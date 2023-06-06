@@ -1,14 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\VesselController;
 use App\Http\Controllers\BayplanImportController;
 use App\Http\Controllers\DischargeController;
-use App\Http\Controllers\PlacementController;
+// use App\Http\Controllers\PlacementController;
 use App\Http\Controllers\MasterController;
-use App\Http\Controllers\EdiController;
+// use App\Http\Controllers\EdiController;
 use App\Http\Controllers\YardrotController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,13 +131,44 @@ Route::post('/edi/receiveeditxt_store', [EdiController::class, 'receiveeditxt_st
 Route::delete('/edi/delete_itembayplan={container_key}', [EdiController::class, 'delete_itembayplan']);
 Route::get('/edi/edit_itembayplan', [EdiController::class, 'edit_itembayplan']);
 
-
-
-route::resource('yards/rowtier', YardrotController::class);
-route::post('yards/rowtier/get_rowtier', [YardrotController::class, 'get_rowtier'])->name('rowtier.get_rowtier');
-
-
-
+Route::group([
+    'middleware' => [
+        'auth:sanctum',
+        'verified'
+    ]
+], function () {
+    Route::group([
+        'prefix' => 'yards',
+        'as' => 'yards.'
+    ], function () {
+        Route::post('/rowtier/get_rowtier', [
+            YardrotController::class,
+            'get_rowtier'
+        ])->name('rowtier.get_rowtier');
+        Route::resource('/rowtier', YardrotController::class);
+    });
+    Route::group([
+        'prefix' => 'reports',
+        'as' => 'reports.'
+    ], function () {
+        Route::post('/hist/get_cont', [
+            HistoryController::class,
+            'get_cont'
+        ])->name('hist.get_cont');
+        Route::post('/hist/get_cont_hist', [
+            HistoryController::class,
+            'get_cont_hist'
+        ])->name('hist.get_cont_hist');
+        Route::post('/hist/get_cont_job', [
+            HistoryController::class,
+            'get_cont_job'
+        ])->name('hist.get_cont_job');
+        Route::get('/blank', function () {
+            return view('reports.hist.blank');
+        })->name('hist.blank');
+        Route::resource('/hist', HistoryController::class);
+    });
+});
 
 Route::get('/planning/bayplan_import', [ BayplanImportController::class, 'index']);
 

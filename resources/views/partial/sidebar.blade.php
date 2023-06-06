@@ -163,7 +163,7 @@
                         <a href="/yard/placement">Placement Container</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{ route('rowtier.index') }}">Yard Display</a>
+                        <a href="{{ route('yards.rowtier.index') }}">Yard Display</a>
                     </li> <li class="submenu-item ">
                         <a href="form-element-checkbox.html">Yard View</a>
                     </li>
@@ -300,7 +300,7 @@
                         <a href="layout-vertical-1-column.html">History Container Equal</a>
                     </li>
                     <li class="submenu-item">
-                        <a href="{{ route('rowtier.index') }}">Yard Display</a>
+                        <a href="{{ route('yards.rowtier.index') }}">Yard Display</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="layout-rtl.html">Vessel Activity Monitoring</a>
